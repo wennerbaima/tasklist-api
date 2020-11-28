@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*CLASSE RESPONSÁVEL POR REGISTRAR AS TAREFAS*/
 
 @Entity
 @Table(name = "tarefa", schema = "tasklist")
@@ -30,6 +31,8 @@ public class Tarefa {
 	
 	private Boolean concluido;
 
+	/*GETTERS AND SETTERS*/
+	
 	public Long getId() {
 		return id;
 	}
