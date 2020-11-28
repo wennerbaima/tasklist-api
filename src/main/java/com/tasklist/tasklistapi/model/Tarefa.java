@@ -24,9 +24,6 @@ public class Tarefa {
 	@Column(name="data_edicao")
 	private Date dataEdicao;
 	
-	@Column(name="data_concluido")
-	private Date dataConcluido;
-	
 	private String titulo;
 	
 	private String descricao;
@@ -55,14 +52,6 @@ public class Tarefa {
 
 	public void setDataEdicao(Date dataEdicao) {
 		this.dataEdicao = dataEdicao;
-	}
-
-	public Date getDataConcluido() {
-		return dataConcluido;
-	}
-
-	public void setDataConcluido(Date dataConcluido) {
-		this.dataConcluido = dataConcluido;
 	}
 
 	public String getTitulo() {

@@ -1,17 +1,16 @@
 spring:
   jpa:
-    database-platform: org.hibernate.spatial.dialect.postgis.PostgisDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: false
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         temp:
           use_jdbc_metadata_defaults: false
   datasource:
-    url: jdbc:postgresql://localhost:5432/tasklist
-    username: postgres
+    url: jdbc:mysql://localhost:3306/tasklist
+    username: mysql
     password: ingested 
-    driver-class-name: org.postgresql.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     #initialization-mode: always

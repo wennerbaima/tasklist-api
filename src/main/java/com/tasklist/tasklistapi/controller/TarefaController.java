@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tasklist.tasklistapi.model.Tarefa;
@@ -18,6 +20,7 @@ import com.tasklist.tasklistapi.repository.TarefaRepository;
 
 @RestController
 @RequestMapping("/tarefas")
+@CrossOrigin(origins = "*")
 public class TarefaController {
 
 	@Autowired
@@ -29,7 +32,9 @@ public class TarefaController {
 	}
 	
 	@GetMapping(value = "{id}")
-	public ResponseEntity<Tarefa> findById(@PathVariable Long id) {
+	public ResponseEntity<Tarefa> findById(
+			@PathVariable Long id,
+			@RequestParam(name = "sort", required = false, defaultValue = "id!asc") List<String> sort) {
 		return repository.findById(id)
 				.map(result -> ResponseEntity.ok().body(result))
 				.orElse(ResponseEntity.notFound().build());
@@ -49,7 +54,6 @@ public class TarefaController {
 		        	result.setConcluido(tarefa.getConcluido());
 		        	result.setDataCadastro(tarefa.getDataCadastro());
 		        	result.setDataEdicao(tarefa.getDataEdicao());
-		        	result.setDataConcluido(tarefa.getDataConcluido());
 		            Tarefa updated = repository.save(result);
 		            return ResponseEntity.ok().body(updated);
 		        }).orElse(ResponseEntity.notFound().build());
