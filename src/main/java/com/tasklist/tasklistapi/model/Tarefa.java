@@ -9,7 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/*CLASSE RESPONSÁVEL POR REGISTRAR AS TAREFAS*/
+/** 
+ * ENTIDADE RESPONSÁVEL POR REGISTRAR AS TAREFAS 
+ *
+ * @author Wenner
+ */
 
 @Entity
 @Table(name = "tarefa", schema = "tasklist")
@@ -31,7 +35,7 @@ public class Tarefa {
 	
 	private Boolean concluido;
 
-	/*GETTERS AND SETTERS*/
+	/** GETTERS AND SETTERS */
 	
 	public Long getId() {
 		return id;

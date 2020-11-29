@@ -5,6 +5,12 @@ import org.springframework.stereotype.Repository;
 
 import com.tasklist.tasklistapi.model.Tarefa;
 
+/** 
+ * REPOSITÓRIO DA ENTIDADE TAREFA 
+ *
+ * @author Wenner
+ */
+
 @Repository
 public interface TarefaRepository extends JpaRepository<Tarefa , Long>{
 

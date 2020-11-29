@@ -18,6 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tasklist.tasklistapi.model.Tarefa;
 import com.tasklist.tasklistapi.repository.TarefaRepository;
 
+/** 
+ * CLASSE RESPONSÁVEL POR CONTROLAR AS REQUISIÇÕES REFERENTES À ENTIDADE TAREFA
+ *
+ * @author Wenner
+ */
+
 @RestController
 @RequestMapping("/tarefas")
 @CrossOrigin(origins = "*")
